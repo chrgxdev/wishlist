@@ -1,0 +1,8 @@
+spec:
+  name: wishlist
+  services:
+    - environment_slug: php
+      git:
+        branch: main
+        repo_clone_url: https://github.com/chrgxdev/wishlist.git
+      name: wishlist

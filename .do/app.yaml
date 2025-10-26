@@ -1,25 +1,8 @@
-spec:
-  name: wishlist-api
-  services:
-    - name: api
-      environment_slug: php
-      github:
-        repo: your-user/backend-repo
-        branch: main
-        deploy_on_push: true
-      source_dir: .
-      http_port: 8080
-      # If you serve everything from public/ and route /api inside index.php:
-      run_command: "php -S 0.0.0.0:${PORT} -t public public/index.php"
-
-      instance_size_slug: basic-xxs
-      instance_count: 1
-      routes:
-        - path: /                            # this app only serves the API domain
-      envs:
-        - key: APP_ENV
-          value: production
-          scope: RUN_AND_BUILD_TIME
-        - key: CORS_ALLOWED_ORIGIN          # set after you know the frontend URL
-          value: https://your-frontend.ondigitalocean.app
-          scope: RUN_AND_BUILD_TIME
+name: wishlist
+services:
+  - environment_slug: php
+    github:
+      branch: main
+      deploy_on_push: true
+      repo: chrgxdev/wishlist
+    name: wishlist
