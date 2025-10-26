@@ -6,10 +6,10 @@ use App\Storage\FileStorage;
 use App\Controller\ContentController;
 use App\Controller\AdminController;
 
-$composer = __DIR__ . '/../vendor/autoload.php';
-if (file_exists($composer)) {
-    require $composer;
-} else {
+//$composer = __DIR__ . '/../vendor/autoload.php';
+//if (file_exists($composer)) {
+//    require $composer;
+//} else {
     // Minimal PSR-4 autoload fallback for App\ namespace
     spl_autoload_register(function($class){
         $prefix = 'App\\';
@@ -19,7 +19,7 @@ if (file_exists($composer)) {
             if (file_exists($path)) require $path;
         }
     });
-}
+//}
 
 // Basic CORS for development
 header('Access-Control-Allow-Origin: *');

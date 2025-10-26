@@ -1,5 +1,7 @@
 {
     "name": "chrgxdev/wishlist",
     "type": "project",
-    "require": {}
+    "require": {
+      "php": "^8.2"
+    }
 }
