@@ -1,0 +1,18 @@
+{
+    "names": [
+        "Samwise",
+        "Frodo",
+        "Joey",
+        "Chandler",
+        "Monica",
+        "Hello"
+    ],
+    "map": {
+        "Samwise": "ac87044ae67d88fb59ddac93edc091cb",
+        "Frodo": "aa293598348f661c2e4524692bc6ab15",
+        "Joey": "f8d623a78c27641412debac4080ece7a",
+        "Chandler": "c0738e0b9281f9d1d660fcfe001fccb1",
+        "Monica": "09084cc0cda34fd80bfa3cc0ae8fe3dc",
+        "Hello": "8b1a9953c4611296a827abf8c47804d7"
+    }
+}

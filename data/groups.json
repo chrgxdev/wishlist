@@ -1,0 +1,17 @@
+[
+    {
+        "slug": "default",
+        "title": "Default",
+        "hidden": true
+    },
+    {
+        "slug": "ruanto-2025",
+        "title": "Ruanto Wishlist 2025",
+        "hidden": false
+    },
+    {
+        "slug": "ruantofamily-2025",
+        "title": "Family Raffle Wishlist 2025",
+        "hidden": false
+    }
+]
