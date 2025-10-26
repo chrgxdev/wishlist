@@ -1,52 +1,25 @@
 spec:
-  name: wishlist-dd
-  region: sgp
-  features:
-    - buildpack-stack=ubuntu-22
-
-  # Path-based routing: /api -> api service, everything else -> frontend
-  ingress:
-    rules:
-      - component:
-          name: api
-        match:
-          path:
-            prefix: /api
-      - component:
-          name: frontend
-        match:
-          path:
-            prefix: /
-
+  name: wishlist-api
   services:
     - name: api
       environment_slug: php
       github:
-        repo: user/repo
+        repo: your-user/backend-repo
         branch: main
         deploy_on_push: true
-      source_dir: backend            # <— your PHP folder
-      run_command: "php -S 0.0.0.0:${PORT} -t public public/index.php"
+      source_dir: .
       http_port: 8080
+      # If you serve everything from public/ and route /api inside index.php:
+      run_command: "php -S 0.0.0.0:${PORT} -t public public/index.php"
+
       instance_size_slug: basic-xxs
       instance_count: 1
+      routes:
+        - path: /                            # this app only serves the API domain
       envs:
         - key: APP_ENV
           value: production
           scope: RUN_AND_BUILD_TIME
-
-  static_sites:
-    - name: frontend
-      environment_slug: html
-      github:
-        repo: user/repo
-        branch: main
-        deploy_on_push: true
-      source_dir: frontend           # <— your Vite app
-      build_command: "npm ci && npm run build"
-      output_dir: dist
-      catchall_document: index.html  # <— SPA routing
-      envs:
-        - key: VITE_API_BASE
-          value: /api
-          scope: BUILD_TIME
+        - key: CORS_ALLOWED_ORIGIN          # set after you know the frontend URL
+          value: https://your-frontend.ondigitalocean.app
+          scope: RUN_AND_BUILD_TIME
